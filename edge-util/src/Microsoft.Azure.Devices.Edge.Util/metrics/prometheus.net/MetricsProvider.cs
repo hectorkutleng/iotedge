@@ -88,7 +88,7 @@ namespace Microsoft.Azure.Devices.Edge.Util.Metrics.Prometheus.Net
         ///     {instance=2) 190
         /// it is clear what happened.
         /// </summary>
-        /// <returns>Instance number.</returns>
+        /// <returns></returns>
         static string GetInstanceNumber()
         {
             if (!File.Exists(InstanceFile))

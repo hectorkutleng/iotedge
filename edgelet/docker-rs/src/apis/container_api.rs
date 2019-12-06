@@ -153,7 +153,7 @@ pub trait ContainerApi: Send + Sync {
         &self,
         id: &str,
         stream: bool,
-    ) -> Box<dyn Future<Item = serde_json::Value, Error = Error<serde_json::Value>> + Send>;
+    ) -> Box<dyn Future<Item = serde_json::Value, Error = Error<serde_json::Value>>>;
     fn container_stop(
         &self,
         id: &str,
@@ -1184,7 +1184,7 @@ where
         &self,
         id: &str,
         stream: bool,
-    ) -> Box<dyn Future<Item = serde_json::Value, Error = Error<serde_json::Value>> + Send> {
+    ) -> Box<dyn Future<Item = serde_json::Value, Error = Error<serde_json::Value>>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::GET;

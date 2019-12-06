@@ -21,11 +21,10 @@ namespace Microsoft.Azure.Devices.Edge.Util.Metrics.AppMetrics
             };
         }
 
-        // Note, this will convert value to a long, since AppMetrics histograms only support longs.
-        public void Update(double value, string[] labelValues)
+        public void Update(long value, string[] labelValues)
         {
             var tags = new MetricTags(this.LabelNames, labelValues);
-            this.histogramMetrics.Update(this.histogramOptions, MetricTags.Concat(MetricTags.Empty, tags), (long)value);
+            this.histogramMetrics.Update(this.histogramOptions, MetricTags.Concat(MetricTags.Empty, tags), value);
         }
     }
 }

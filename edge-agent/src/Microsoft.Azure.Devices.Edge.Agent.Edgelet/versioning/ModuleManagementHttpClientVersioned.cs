@@ -10,7 +10,6 @@ namespace Microsoft.Azure.Devices.Edge.Agent.Edgelet.Versioning
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Devices.Edge.Agent.Core;
-    using Microsoft.Azure.Devices.Edge.Agent.Core.Metrics;
     using Microsoft.Azure.Devices.Edge.Agent.Edgelet.Models;
     using Microsoft.Azure.Devices.Edge.Util;
     using Microsoft.Azure.Devices.Edge.Util.Edged;
@@ -61,9 +60,9 @@ namespace Microsoft.Azure.Devices.Edge.Agent.Edgelet.Versioning
 
         public abstract Task RestartModuleAsync(string name);
 
-        public abstract Task<SystemInfo> GetSystemInfoAsync(CancellationToken cancellationToken);
+        public abstract Task<SystemInfo> GetSystemInfoAsync();
 
-        public abstract Task<SystemResources> GetSystemResourcesAsync();
+        public abstract Task<SystemInfo> GetSystemInfoAsync(CancellationToken cancellationToken);
 
         public abstract Task<IEnumerable<ModuleRuntimeInfo>> GetModules<T>(CancellationToken cancellationToken);
 

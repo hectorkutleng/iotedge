@@ -17,9 +17,7 @@ use serde_json;
 use url::Url;
 
 use edgelet_core::*;
-use edgelet_core::{
-    ModuleOperation, RuntimeOperation, SystemInfo as CoreSystemInfo, SystemResources, UrlExt,
-};
+use edgelet_core::{ModuleOperation, RuntimeOperation, SystemInfo as CoreSystemInfo, UrlExt};
 use edgelet_docker::{self, DockerConfig};
 use edgelet_http::{UrlConnector, API_VERSION};
 
@@ -164,8 +162,6 @@ impl ModuleRuntime for ModuleClient {
     type StartFuture = Box<dyn Future<Item = (), Error = Self::Error> + Send>;
     type StopFuture = Box<dyn Future<Item = (), Error = Self::Error> + Send>;
     type SystemInfoFuture = Box<dyn Future<Item = CoreSystemInfo, Error = Self::Error> + Send>;
-    type SystemResourcesFuture =
-        Box<dyn Future<Item = SystemResources, Error = Self::Error> + Send>;
     type RemoveAllFuture = Box<dyn Future<Item = (), Error = Self::Error> + Send>;
 
     fn create(&self, _module: ModuleSpec<Self::Config>) -> Self::CreateFuture {
@@ -250,10 +246,6 @@ impl ModuleRuntime for ModuleClient {
     }
 
     fn system_info(&self) -> Self::SystemInfoFuture {
-        unimplemented!()
-    }
-
-    fn system_resources(&self) -> Self::SystemResourcesFuture {
         unimplemented!()
     }
 
